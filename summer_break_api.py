@@ -73,7 +73,7 @@ def clean_csv_data(data):
 
 # ==============================================================================
 # Prints output of transactional data in API
-# ----------------------------------------
+# ------------------------------------------
 def print_transaction_results(all_transactions_df):
     print('  ')
     print('All Transactions: ')
