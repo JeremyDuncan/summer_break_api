@@ -124,3 +124,4 @@ For example:
 - Use a database such as MySQL or PostgreSQL for storing transactional data.
 - Add authentication for security purposes.
 - Add unit tests for the application.
+- Update to be containerized using Docker for easier deployments in different environments.
