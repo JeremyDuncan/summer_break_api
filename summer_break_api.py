@@ -5,24 +5,9 @@ from io import StringIO
 app = Flask(__name__)
 all_transactions_df = pd.DataFrame(columns=["Date", "Type", "Amount", "Memo"])
 
-# ==============================================================================
-# Cleans CSV data. Removes comments and whitespace
-# ------------------------------------------------
-def clean_csv_data(data):
-    cleaned_data = []
-    for line in data.splitlines():
-        # Ignore lines that are empty or start with '#'
-        if line.strip() and not line.startswith('#'):
-            try:
-                # Split up data and strip whitespace
-                date, type_, amount, memo = line.split(',', 3)
-                cleaned_data.append(f"{date.strip()},{type_.strip()},{amount.strip()},{memo.strip()}")
-            except ValueError:
-                # Skip lines that don't have correct number of columns
-                pass
-    return "\n".join(cleaned_data)
-
-
+################################################################################
+##  ENDPOINTS  ##
+#################
 # ==============================================================================
 # POST Endpoint: handles uploading of transactions (CSV File)
 # -----------------------------------------------------------
@@ -49,7 +34,6 @@ def upload_transactions():
 
         return "File uploaded successfully", 200
 
-
 # ==============================================================================
 # GET Endpoint: generates a report from the transactions
 # ------------------------------------------------------
@@ -67,18 +51,38 @@ def get_report():
     })
 
 
+################################################################################
+##  HELPER FUNCTIONS  ##
+########################
 # ==============================================================================
-# Console Output Helper Function
-# ------------------------------
+# Cleans CSV data. Removes comments and whitespace
+# ------------------------------------------------
+def clean_csv_data(data):
+    cleaned_data = []
+    for line in data.splitlines():
+        # Ignore lines that are empty or start with '#'
+        if line.strip() and not line.startswith('#'):
+            try:
+                # Split up data and strip whitespace
+                date, type_, amount, memo = line.split(',', 3)
+                cleaned_data.append(f"{date.strip()},{type_.strip()},{amount.strip()},{memo.strip()}")
+            except ValueError:
+                # Skip lines that don't have correct number of columns
+                pass
+    return "\n".join(cleaned_data)
+
+# ==============================================================================
+# Prints output of transactional data in API
+# ----------------------------------------
 def print_transaction_results(all_transactions_df):
     print('  ')
     print('All Transactions: ')
     print('===============================================================')
     print(all_transactions_df)
     print('  ')
+
     
-    
-########################========================================================
+################################################################################
 ## Execute Flask App  ##
 ########################
 if __name__ == '__main__':
