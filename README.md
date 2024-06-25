@@ -88,6 +88,23 @@ curl -X POST -F 'data=@transactions.csv' http://127.0.0.1:5000/transactions
 curl http://127.0.0.1:5000/report
 ```
 
+## CSV Format Instructions
+
+CSV data formatted as follows:
+
+`Date, Type, Amount($), Memo`
+
+Where `Type` is one of "Income" or "Expense" and `Memo` is either an expense category or job address (both just strings).
+
+For example:
+
+```
+2020-07-01, Expense, 18.77, Gas
+2020-07-04, Income, 40.00, 347 Woodrow
+2020-07-06, Income, 35.00, 219 Pleasant
+2020-07-12, Expense, 49.50, Repairs
+```
+
 ## Additional Context
 
 ### Assumptions
