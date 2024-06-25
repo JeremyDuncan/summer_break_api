@@ -119,6 +119,15 @@ For example:
    2020-07-12, Expense, 49.50, Repairs
    ```
 
+## Testing
+
+To test API run the following command:
+
+```bash
+   python test_summer_break_api.py
+```
+Results should come back with 2 passing test, one for each endpoint.
+
 ## Additional Context
 
 ### Assumptions
@@ -137,5 +146,4 @@ For example:
 - Add data validation for CSV data.
 - Use a database such as MySQL or PostgreSQL for storing transactional data.
 - Add authentication for security purposes.
-- Add unit tests for the application.
 - Update to be containerized using Docker for easier deployments in different environments.
