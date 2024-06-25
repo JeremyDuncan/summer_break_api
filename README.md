@@ -17,35 +17,49 @@ Provides endpoints to:
 
 ## Setup Instructions
 
-1. **Clone the repository:**
+### Option 1: Clone the repository
+
+-  **Clone the repository:**
 
    ```bash
    git clone git@github.com:JeremyDuncan/summer_break_api.git
    cd summer_break_api
    ```
+### Option 2: Use the tarball file
 
-2. **Install Flask and pandas:**
+-  **Extract the tarball file:**
+
+   ```bash
+   tar -xvf jeremy_duncan_summer_break_api.tar.gz
+   cd summer_break_api
+   ```
+---
+### Install Dependencies
+
+- **Install Flask and pandas:**
 
    ```bash
    pip install Flask pandas
    ```
 
-3. **Run Flask app:**
+### Run Server
+
+- **Run Flask app:**
 
    ```bash
    python summer_break_api.py
    ```
-
    The app will be available at `http://127.0.0.1:5000`.
+
 
 ## Executing API
 
 ### test.sh
 To run all API endpoints to demonstrate API functionality, run:
 
- ```bash
-   bash test.sh
-```
+   ```bash
+      bash test.sh
+   ```
 
 ## Endpoint Descriptions
 
@@ -62,9 +76,9 @@ To run all API endpoints to demonstrate API functionality, run:
 
 **Example using `curl`:**
 
-```bash
-curl -X POST -F 'data=@transactions.csv' http://127.0.0.1:5000/transactions
-```
+   ```bash
+   curl -X POST -F 'data=@transactions.csv' http://127.0.0.1:5000/transactions
+   ```
 
 ### Get Report
 
@@ -84,9 +98,9 @@ curl -X POST -F 'data=@transactions.csv' http://127.0.0.1:5000/transactions
 
 **Example using `curl`:**
 
-```bash
-curl http://127.0.0.1:5000/report
-```
+   ```bash
+   curl http://127.0.0.1:5000/report
+   ```
 
 ## CSV Format Instructions
 
@@ -98,12 +112,12 @@ Where `Type` is one of "Income" or "Expense" and `Memo` is either an expense cat
 
 For example:
 
-```
-2020-07-01, Expense, 18.77, Gas
-2020-07-04, Income, 40.00, 347 Woodrow
-2020-07-06, Income, 35.00, 219 Pleasant
-2020-07-12, Expense, 49.50, Repairs
-```
+   ```
+   2020-07-01, Expense, 18.77, Gas
+   2020-07-04, Income, 40.00, 347 Woodrow
+   2020-07-06, Income, 35.00, 219 Pleasant
+   2020-07-12, Expense, 49.50, Repairs
+   ```
 
 ## Additional Context
 
